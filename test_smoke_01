@@ -1,0 +1,17 @@
+describe('SLP test',function(){
+    it('Smoke test functionalities',function(){
+        cy.viewport(1200,800);
+        //Visit homepage of trialsystem
+        cy.visit('https://trialcloud.celonis.com/#/frontend/projects');
+        //Enter credentials
+        cy.get('.trial__form-group [name=email]').type('');
+        cy.get('#password').type('');
+        cy.get('.trial__button--primary').click();
+        //Open the project folder
+        cy.get('.project-item-name.ng-binding').dblclick();
+        //Notification for POST method not supported might appear
+        //Open 1.Purchase To Pay section
+        cy.get('body > div.full-height.flex-vertical.ng-scope.relative > div > div.flex-horizontal.flex.full-height.ng-scope > div.management-ui__main.with-permissions-panel.flex-vertical.full-height.ng-scope > div.management-ui__main__body.management-ui__main__body--filebrowser.full-height > div > div.view-folders__body.flex > div:nth-child(2) > div > div > div:nth-child(1) > div.project-item-name.ng-binding').dblclick();
+        cy.get('body > div.full-height.flex-vertical.ng-scope.relative > div.flex-vertical.full-height.analysis-ui.ng-scope > div.ce-analysis-view.cursor-default.ng-scope > div > div > div:nth-child(10) > div > div.component__body.flex.ng-scope > div > div > div.pe-component__main > div > div.filling-space.ng-scope.ng-isolate-scope > svg > g > g > g.node-layer > g:nth-child(10)').click()
+    })
+})
