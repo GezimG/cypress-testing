@@ -1,0 +1,55 @@
+describe ( 'SLP Test site' , function() {
+    it('Visits the site', function() {          
+        cy.viewport (1200,800);
+        //Home page
+        cy.visit('https://trialcloud.celonis.com/#/frontend/projects');
+        // Enter credentials    
+        cy.get('.trial__form-group [name=email]').type('');
+        cy.get('#password').type('');
+        cy.get('.trial__button--primary').click();
+        //open the project folder
+        cy.get('.project-item-name.ng-binding').dblclick();
+        //Notification for POST method not supported might appear
+        //Open 1.Purchase To Pay section
+        cy.get('body > div.full-height.flex-vertical.ng-scope.relative > div > div.flex-horizontal.flex.full-height.ng-scope > div.management-ui__main.with-permissions-panel.flex-vertical.full-height.ng-scope > div.management-ui__main__body.management-ui__main__body--filebrowser.full-height > div > div.view-folders__body.flex > div:nth-child(2) > div > div > div:nth-child(1) > div.project-item-name.ng-binding').dblclick();
+        cy.wait(10000)
+        cy.get('div.flex-vertical.full-height.analysis-ui.ng-scope div.component__header.ng-scope > div').should('contain','Purchase to pay process')
+        //Go back to all sections
+        cy.get('body > div.full-height.flex-vertical.ng-scope.relative > div.flex-vertical.full-height.analysis-ui.ng-scope > div.analysis-menu.cursor-default.ng-scope > a > div').click();
+        //Open 2.Accounts Payable section
+        cy.get('body > div.full-height.flex-vertical.ng-scope.relative > div > div.flex-horizontal.flex.full-height.ng-scope > div.management-ui__main.with-permissions-panel.flex-vertical.full-height.ng-scope > div.management-ui__main__body.management-ui__main__body--filebrowser.full-height > div > div.view-folders__body.flex > div:nth-child(2) > div > div > div:nth-child(2) > div.project-item-icon-container > div').dblclick();
+        cy.wait(10000)
+        cy.get('div.flex-vertical.full-height.analysis-ui.ng-scope div.component__header.ng-scope > div').should('contain','Accounts payable process')
+        cy.get('body > div.full-height.flex-vertical.ng-scope.relative > div.flex-vertical.full-height.analysis-ui.ng-scope > div.analysis-menu.cursor-default.ng-scope > a > div').click();
+        //Open 3.Order to Cash section
+        cy.get('body > div.full-height.flex-vertical.ng-scope.relative > div > div.flex-horizontal.flex.full-height.ng-scope > div.management-ui__main.with-permissions-panel.flex-vertical.full-height.ng-scope > div.management-ui__main__body.management-ui__main__body--filebrowser.full-height > div > div.view-folders__body.flex > div:nth-child(2) > div > div > div:nth-child(3) > div.project-item-icon-container > div').dblclick();
+        cy.wait(10000)
+        cy.get('div.flex-vertical.full-height.analysis-ui.ng-scope div.component__header.ng-scope > div').should('contain','Order to cash process')
+        cy.get('body > div.full-height.flex-vertical.ng-scope.relative > div.flex-vertical.full-height.analysis-ui.ng-scope > div.analysis-menu.cursor-default.ng-scope > a > div').click();
+        //Open 4.IT Service Management section
+        cy.get('body > div.full-height.flex-vertical.ng-scope.relative > div > div.flex-horizontal.flex.full-height.ng-scope > div.management-ui__main.with-permissions-panel.flex-vertical.full-height.ng-scope > div.management-ui__main__body.management-ui__main__body--filebrowser.full-height > div > div.view-folders__body.flex > div:nth-child(2) > div > div > div:nth-child(4) > div.project-item-icon-container').dblclick();
+        //Click on Overview sub-section
+        cy.get('body > div.full-height.flex-vertical.ng-scope.relative > div.flex-vertical.full-height.analysis-ui.ng-scope > div:nth-child(4) > div > div > div:nth-child(3) > div').click()
+        cy.wait(10000)
+        cy.get('div.flex-vertical.full-height.analysis-ui.ng-scope div.component__header.ng-scope > div').should('contain','Process variants in the service request process')
+        cy.get('body > div.full-height.flex-vertical.ng-scope.relative > div.flex-vertical.full-height.analysis-ui.ng-scope > div.analysis-menu.cursor-default.ng-scope > a > div').click();
+        //Open 5.Logistics section
+        cy.get('body > div.full-height.flex-vertical.ng-scope.relative > div > div.flex-horizontal.flex.full-height.ng-scope > div.management-ui__main.with-permissions-panel.flex-vertical.full-height.ng-scope > div.management-ui__main__body.management-ui__main__body--filebrowser.full-height > div > div.view-folders__body.flex > div:nth-child(2) > div > div > div:nth-child(5) > div.project-item-icon-container > div').dblclick();
+        //Click on Overview sub-section
+        cy.get('body > div.full-height.flex-vertical.ng-scope.relative > div.flex-vertical.full-height.analysis-ui.ng-scope > div:nth-child(4) > div > div > div:nth-child(3) > div').click()
+        cy.wait(10000)
+        cy.get('div.flex-vertical.full-height.analysis-ui.ng-scope div.component__header.ng-scope > div').should('contain','Logistic process')
+        cy.get('body > div.full-height.flex-vertical.ng-scope.relative > div.flex-vertical.full-height.analysis-ui.ng-scope > div.analysis-menu.cursor-default.ng-scope > a > div').click();
+        //Open 6.Human Resources section
+        cy.get('body > div.full-height.flex-vertical.ng-scope.relative > div > div.flex-horizontal.flex.full-height.ng-scope > div.management-ui__main.with-permissions-panel.flex-vertical.full-height.ng-scope > div.management-ui__main__body.management-ui__main__body--filebrowser.full-height > div > div.view-folders__body.flex > div:nth-child(2) > div > div > div:nth-child(6) > div.project-item-icon-container > div').dblclick();
+        cy.get('div.flex-vertical.full-height.analysis-ui.ng-scope div.component__header.ng-scope > div').should('contain','Hiring process');
+        cy.get('div.flex-vertical.full-height.analysis-ui.ng-scope div.component__header.ng-scope > div').should('contain','Hiring process');
+        
+        //Go back to all sections
+        cy.get('body > div.full-height.flex-vertical.ng-scope.relative > div.flex-vertical.full-height.analysis-ui.ng-scope > div.analysis-menu.cursor-default.ng-scope > a > div').click();
+        //Proceding to log out
+        cy.get('body > div.full-height.flex-vertical.ng-scope.relative > div > div.full-height.no-flex-shrink.ng-scope > div > div.aside-account > div > div.dropdown-toggle > div').click();
+        cy.get('body > div.full-height.flex-vertical.ng-scope.relative > div > div.full-height.no-flex-shrink.ng-scope > div > div.aside-account > div > div.dropdown-menu.dropdown-menu--account > a.dropdown-menu__item.dropdown-menu__item--dark.ng-binding.ng-scope').click();
+
+            })           
+    })            
