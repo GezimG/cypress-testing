@@ -1,4 +1,4 @@
-# cypress-testing
+# Automated cypress tests
 
 Here you'll find two tests prepared for the trial system.
 - **test_healthcheck_01** is the first test as per challenge requirement and is about healthcheck of system and it's fully completed.
